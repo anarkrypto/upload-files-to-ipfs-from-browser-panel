@@ -1,6 +1,6 @@
 {
   "name": "upload-file-to-ipfs-from-browser-panel",
-  "version": "0.1",
+  "version": "0.0.1",
   "private": false,
   "scripts": {
     "start": "node ./app.js"
