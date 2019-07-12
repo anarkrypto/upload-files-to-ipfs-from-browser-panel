@@ -14,7 +14,7 @@ Uma interface web simples e intituiva para a API [js-ipfs-http-client](https://g
 
 As linguagens utilizadas aqui (javascript, html e css) se aplicam a qualquer servidor web, podem rodar tanto com node js, conforme segue o tutorial abaixo, como em outros. 
 Para rodar no apache e nginx, por exemplo, basta copiar os arquivos de dentro do diretório 
-[public](https://github.com/anarkrypto/upload-files-to-ipfs-from-browser-panel/tree/master/public") para o diretório do seu servidor (por exemplo /var/www/html/).
+[<strong>/public</strong>](https://github.com/anarkrypto/upload-files-to-ipfs-from-browser-panel/tree/master/public") para o diretório do seu servidor (por exemplo /var/www/html/).
 
   [<h2>Demo Online</h2>](https://anarkrypto.github.io/upload-files-to-ipfs-from-browser-panel/public)
   
@@ -35,11 +35,11 @@ Debian / Ubuntu:
 ```bash
   sudo apt update && sudo apt upgrade
 
-  sudo apt-get install curl python-software-properties
+  sudo apt install curl python-software-properties
 
   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 
-  sudo apt-get install nodejs
+  sudo apt install nodejs
 
   sudo apt install git
 ```
@@ -74,7 +74,7 @@ Se deu tudo certo, ele vai retornar algo como
 Então abra este endereço https://localhost:3000 no seu navegador e pronto! Já pode começar a enviar seus arquivos, a interface é intuitiva.
 
 
-### Para rodar num node IPFS localmente 
+### Para rodar a API em um node IPFS localmente 
 
 
 Caso ainda não tenha instalado, siga os passos de instalação e configuração do node IPFS: [IPFS - Getting Started](https://ipfs.io/ipfs/Qme5m1hmmMbjdzcDeUC2LtHZxAABYtdmq5mBpvtBsC8VL5/docs/getting-started/)
@@ -90,9 +90,11 @@ ipfs config --json API.HTTPHeaders.Access-Control-Expose-Headers '["Location"]'
 ipfs config --json API.HTTPHeaders.Access-Control-Allow-Credentials '["true"]'
 ```
 
-Inicie o node novamente e pronto!
+Inicie o node novamente
 ```bash
 ipfs daemon 
 ```
 
-Seu node estará online localmente e pronto pra servir as requisições API. 
+Pronto! Seu node estará online localmente e pronto pra servir as requisições API. 
+
+Por padrão, o node IPFS roda a API em localhost:5001 (ou 127.0.0.1:5001). E o gateway na porta 8080.
