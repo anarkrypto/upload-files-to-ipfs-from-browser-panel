@@ -23,13 +23,14 @@ Para rodar no apache e nginx, por exemplo, basta copiar os arquivos de dentro do
 Você pode acessar o mesmo neste link. É o mesmo código, hospedado pelo Github Pages
 
 
-Caso decida usar um node IPFS rodando localmente, lembre-se de setar os cors corretamente [Cors](#Cors)
+Caso decida usar um node IPFS rodando localmente, lembre-se de [Setar o Cors](#Cors) corretamente.
 
-Caso contrário terá erros de permissão nas requisiçes.
+Caso contrário terá erros de permissão nas requisiçôes.
 
 ## Instalando e rodando (node js):
 
 Primeiramente resolva as dependências (git, npm e node js)
+
 Debian / Ubuntu:
 ```bash
   sudo apt update && sudo apt upgrade
@@ -76,7 +77,7 @@ Então abra este endereço https://localhost:3000 no seu navegador e pronto! Já
 ### Para rodar num node IPFS localmente 
 
 
-Caso ainda não tenha instalado, siga os passos de instalação e configuração do node IPFS [IPFS - Getting Started](https://ipfs.io/ipfs/Qme5m1hmmMbjdzcDeUC2LtHZxAABYtdmq5mBpvtBsC8VL5/docs/getting-started/)
+Caso ainda não tenha instalado, siga os passos de instalação e configuração do node IPFS: [IPFS - Getting Started](https://ipfs.io/ipfs/Qme5m1hmmMbjdzcDeUC2LtHZxAABYtdmq5mBpvtBsC8VL5/docs/getting-started/)
 
 #### Cors
 Após isso, configure o CORS, com os seguintes comandos no seu terminal:
