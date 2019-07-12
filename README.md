@@ -23,7 +23,9 @@ Para rodar no apache e nginx, por exemplo, basta copiar os arquivos de dentro do
 Você pode acessar o mesmo neste link. É o mesmo código, hospedado pelo Github Pages
 
 
-Caso decida usar um node IPFS rodando localmente, lembre-se de setar os cors. Caso contrário terá erros de permissão nas requisiçes.
+Caso decida usar um node IPFS rodando localmente, lembre-se de setar os cors corretamente [Install](#install)
+
+Caso contrário terá erros de permissão nas requisiçes.
 
 ## Instalando e rodando (node js):
 
@@ -71,11 +73,12 @@ Se deu tudo certo, ele vai retornar algo como
 Então abra este endereço https://localhost:3000 no seu navegador e pronto! Já pode começar a enviar seus arquivos, a interface é intuitiva.
 
 
-** Para rodar num node IPFS localmente **
+### Para rodar num node IPFS localmente 
 
 
 Caso ainda não tenha instalado, siga os passos de instalação e configuração do node IPFS [IPFS - Getting Started](https://ipfs.io/ipfs/Qme5m1hmmMbjdzcDeUC2LtHZxAABYtdmq5mBpvtBsC8VL5/docs/getting-started/)
 
+#### Cors
 Após isso, configure o CORS, com os seguintes comandos no seu terminal:
 
 ```bash
