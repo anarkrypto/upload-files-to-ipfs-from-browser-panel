@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Upload files to IPFS from Browser</title>
+    <link rel="stylesheet" href="css/style.css?v0.1" type='text/css'>
+		<link rel="stylesheet" href="css/upload-utilities.css?v0.1" type='text/css'>
+		<link rel="stylesheet" href="css/node-menu.css?v0.1" type='text/css'>
+		<script src='js/jquery.min.js?2.1.3'></script>
+	  <script src="js/ipfs-http-client.js"></script>
+	  <script src="js/buffer.js?5.2.1"></script>
+		<script src="config.js?v0.1"></script> <!-- read config.js before upload.js -->
+	</head>
+	<body>
+    <div id="content">
+			<h1>Upload files to <img src="img/ipfs.png" style="width: 50px;margin-bottom: -15px;"> from Browser - Panel</h1>
+			<div id="wrapper">
+      <div id="fileDropBox">
+        <svg class="box_icon" xmlns="http://www.w3.org/2000/svg" width="50" height="43" viewBox="0 0 50 43"><path d="M48.4 26.5c-.9 0-1.7.7-1.7 1.7v11.6h-43.3v-11.6c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v13.2c0 .9.7 1.7 1.7 1.7h46.7c.9 0 1.7-.7 1.7-1.7v-13.2c0-1-.7-1.7-1.7-1.7zm-24.5 6.1c.3.3.8.5 1.2.5.4 0 .9-.2 1.2-.5l10-11.6c.7-.7.7-1.7 0-2.4s-1.7-.7-2.4 0l-7.1 8.3v-25.3c0-.9-.7-1.7-1.7-1.7s-1.7.7-1.7 1.7v25.3l-7.1-8.3c-.7-.7-1.7-.7-2.4 0s-.7 1.7 0 2.4l10 11.6z"></path></svg>
+        Drop files here <br> or
+        <label for='files'>Choose Files &#187;</label>
+        <input type="file" name="files[]" id="files" class="box_file" data-multiple-caption="{count} files selected" multiple="">
+      </div>
+      <!-- Provides the alert() method. -->
+
+      <output id="list"><ul></ul></output>
+			<div id="upload_conf">
+      <button type="button" onclick="upload()" class="box_button" id="buttonUpload">Upload<img src="img/upload.png" /></button>
+      <div class="loading loading-hidden">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+		</div>
+    </div>
+
+    <div class="form">
+
+			<script>
+			var formRemote = '<div id="remote">\
+          <h1>Configure your IPFS Gateway Node as Remote</h1>\
+          <form action="submit" method="post">\
+          <div class="top-row">\
+            <div class="field-wrap" id="address">\
+              <label id="labelAddress">\
+                Node Address<span class="req">*</span>\
+              </label>\
+              <input type="text" name="addressNode" id="remote_address" required autocomplete="off"/>\
+            </div>\
+            <div class="field-wrap" id="apiPort">\
+              <label id="labelPort">\
+                API Port<span class="req">*</span>\
+              </label>\
+              <input type="text" name="apiPort" id="remote_apiPort" required autocomplete="off"/>\
+            </div>\
+				</div>\
+				<div class="top-row">\
+				<div class="field-wrap" id="gatewayPort">\
+					<label id="labelGateway">\
+						Gateway Port\
+					</label>\
+					<input type="text" name="gatewayPort" id="remote_gatewayPort" required autocomplete="off"/>\
+				</div>\
+			</div>\
+          <ul class="tab-group" id="remoteProtocol">\
+            <li class="tab" id="https" onclick="changeProtocol(\'remote\', \'https\')"><a href="#remote">HTTPS</a></li>\
+            <li class="tab" id="http" onclick="changeProtocol(\'remote\', \'http\')"><a href="#remote">HTTP</a></li>\
+          </ul>\
+          <button type="button" class="button button-block" id="buttonRemote" onclick="updateNode(\'remote\')">\
+						<div>Connect <img src="img/connect.png"/></div>\
+						<div class="min-loading min-loading-hidden">\
+					        <div class="min-line"></div>\
+					        <div class="min-line"></div>\
+					        <div class="min-line"></div>\
+					  </div>\
+					</button>\
+          </form></div>';
+
+				var formLocal = '<div id="local">\
+				<h1>Configure your IPFS Gateway Node as Local</h1>\
+          <form action="submit" method="post">\
+          <div class="top-row">\
+            <div class="field-wrap" id="address">\
+              <label id="labelAddress">\
+                Node Address<span class="req">*</span>\
+              </label>\
+              <input type="text" name="first_name" id="local_address" required autocomplete="off"/>\
+            </div>\
+            <div class="field-wrap" id="apiPort">\
+              <label id="labelPort">\
+                Port<span class="req">*</span>\
+              </label>\
+              <input type="text" name="last_name" id="local_apiPort" required autocomplete="off"/>\
+            </div>\
+          </div>\
+					<div class="top-row">\
+					<div class="field-wrap" id="gatewayPort">\
+						<label id="labelGateway">\
+							Gateway Port\
+						</label>\
+						<input type="text" name="gatewayPort" id="local_gatewayPort" required autocomplete="off"/>\
+					</div>\
+				</div>\
+          <ul class="tab-group" id="localProtocol">\
+            <li class="tab" id="https" onclick="changeProtocol(\'local\', \'https\')"><a href="#local">HTTPS</a></li>\
+            <li class="tab" id="http" onclick="changeProtocol(\'local\', \'http\')"><a href="#local">HTTP</a></li>\
+          </ul>\
+          <button type="button" class="button button-block" id="buttonLocal" onclick="updateNode(\'local\')">\
+					<div>Connect <img src="img/connect.png"/></div>\
+					<div class="min-loading min-loading-hidden">\
+								<div class="min-line"></div>\
+								<div class="min-line"></div>\
+								<div class="min-line"></div>\
+					</div></button>\
+          </form></div>';
+
+					if (node.default == "remote") {
+						document.querySelector("div.form").innerHTML = '<ul class="tab-group">\
+							<li class="tab active"><a href="#remote">Remote Node</a></li>\
+							<li class="tab"><a href="#local">Local Node</a></li>\
+						</ul>\
+						<div class="tab-content">' + formRemote + '\n' + formLocal + '</div><!-- tab-content -->'
+					}
+
+					if (node.default == "local") {
+						document.querySelector("div.form").innerHTML = '<ul class="tab-group">\
+							<li class="tab active"><a href="#local">Local Node</a></li>\
+							<li class="tab"><a href="#remote">Remote Node</a></li>\
+						</ul>\
+						<div class="tab-content">' + formLocal + '\n' + formRemote + 	'</div><!-- tab-content -->'
+					}
+
+</script>
+
+
+</div> <!-- /form -->
+
+<pre id="response"><spam id="info">Response IPFS API:</spam><br>
+</pre>
+
+</div> <!-- end content -->
+
+<!-- <script src="js/promise-util.js"></script> -->
+<script src="js/node-config.js?v0.1"></script>
+<script src="js/connect-and-upload.js?v0.1"></script>
+<script src="js/node-menu.js"></script>
+
+	<footer>
+		<a href="https://github.com/anarkrypto/upload-files-to-ipfs-from-browser-panel" target="_blank">On GitHub</a>
+		<a href="https://www.youtube.com/watch?v=5Uj6uR3fp-U" target="_blank">What is IPFS</a>
+		<a href="https://github.com/ipfs/js-ipfs-http-client" target="_blank">IPFS JS API</a>
+		<a href="https://ipfs.github.io/public-gateway-checker/" target="_blank">IPFS Gateways List</a>
+	</footer>
+
+
+	</body>
+
+</html>
