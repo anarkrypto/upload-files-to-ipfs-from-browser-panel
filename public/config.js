@@ -2,7 +2,7 @@
 
 const node = []
 
-node.default = "local"
+node.default = "remote"
 
 // default remote Node
 node.remote = []
