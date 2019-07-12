@@ -23,7 +23,7 @@ Para rodar no apache e nginx, por exemplo, basta copiar os arquivos de dentro do
 Você pode acessar o mesmo neste link. É o mesmo código, hospedado pelo Github Pages
 
 
-Caso decida usar um node IPFS rodando localmente, lembre-se de setar os cors corretamente [Install](#install)
+Caso decida usar um node IPFS rodando localmente, lembre-se de setar os cors corretamente [Cors](#Cors)
 
 Caso contrário terá erros de permissão nas requisiçes.
 
