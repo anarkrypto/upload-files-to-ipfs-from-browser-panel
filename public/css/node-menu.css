@@ -1,13 +1,13 @@
 
 .form {
-  display: inline-block;
   background: rgba(35, 61, 77, 0.81);
-  padding: 14px;
-  max-width: 420px;
-  margin: 20px 0px;
+  padding: 15px;
+  width: 400px;
+  margin: 50px 55px 10px 15px;
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
-  foat: right;
+  float: right;
+  height: auto;
 }
 
 .tab-group {
@@ -36,10 +36,10 @@
 }
 
 #localProtocol li, #remoteProtocol li {
-  margin-left: 32%;
+  margin-left: 25%;
 }
 #localProtocol li a, #remoteProtocol li a {
-  width: 25%;
+  width: 28%;
   padding: 4px;
   font-size: 14px;
 }
@@ -61,7 +61,8 @@
   text-align: center;
   color: #ffffff;
   font-weight: 300;
-  margin: 0 0 20px;
+  margin-bottom: 10px;
+  padding: 0px 0px;
   font-size: 1em;
 }
 
@@ -206,7 +207,7 @@ textarea {
   background-color: #0c89ba;
 }
 .min-loading {
-  margin-right: 90px;
+  margin-right: 70px;
   float: right;
 }
 .min-loading-hidden {
@@ -227,9 +228,9 @@ textarea {
     width: 5px;
   }
   50% {
-    width: 15px;
+    width: 12px;
   }
   100% {
-    width: 25px;
+    width: 22px;
     background-color: #e3e3e3;
   }

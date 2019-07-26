@@ -1,14 +1,9 @@
-#wrapper {
-  width: 40%;
-  margin: 35px 40px;
-  margin-top:40px;
-  display: block;
-  float: left;
-}
+
 
 #fileDropBox {
-  padding: 25px 15px 15px 15px;
-  width: 450px;
+  width: 400px;
+  padding-top: 25px;
+  margin: 80px 50px 40px 50px;
   line-height: 5em;
   text-align: center;
   color: gray;
@@ -18,6 +13,8 @@
   outline: 1px dashed gray;
   outline-offset: -6px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  display: block;
+  float: left;
 }
 
 .box_icon {
@@ -35,11 +32,9 @@
 
 #fileDropBox label {
   cursor: pointer;
-  //display: inline-block;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  //pointer-events: none;
 }
 
 #fileDropBox label:hover, #fileDropBox label:focus {
@@ -66,11 +61,11 @@
       border: 0;
       outline: none;
       border-radius: 0;
-      padding: 5px 13px;
-      margin: 35px 35px 90px 40px;
+      padding: 5px;
+      margin: 35px 35px 35px 60px;
       float: left;
       font-size: 1rem;
-      font-weight: 500;
+      width: 9rem;
       text-transform: uppercase;
       letter-spacing: .1em;
       background-color: #3498db;
@@ -95,20 +90,18 @@
 
 
 
-    #list .uploaded {
-      text-decoration: none;
-      color: #3498db;
-    }
-
-    #list .uploaded:hover {
-      color: #207ab6;
-      cursor: pointer;
-    }
-
-
+    #list {
+        max-height:400px;
+        min-height: 100px;
+        width:400px;
+        margin-left: 50px;
+        border:1px solid #ccc;
+        margin-top: 10px;
+        overflow: auto;
+      }
 
     #list ul {
-      margin: 20px 0px;
+      margin: 4px;
       list-style-type: none;
       padding-inline-start: 0px;
       //padding-bottom:7px;
@@ -116,13 +109,23 @@
     }
 
     #list li {
-      width: 450px;
+      width: 375px;
+      margin-top: 3px;
       background-color: #f2f3f5;
       border: 1px solid #dbdbdb;
       padding: 5px 0px 6px 8px;
-      margin: 3px 0 0 2px;
       word-wrap: break-word;
       font-size: 14px;
+    }
+
+    #list .uploaded {
+          text-decoration: none;
+          color: #3498db;
+    }
+
+    #list .uploaded:hover {
+          color: #207ab6;
+          cursor: pointer;
     }
 
     .removeItem {
@@ -142,9 +145,4 @@
 
     spam#info {
       color:#92b0b3;
-    }
-
-
-    *, *:before, *:after {
-      box-sizing: border-box;
     }

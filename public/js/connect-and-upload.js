@@ -76,13 +76,13 @@ function online (selectedNode) {
 }
 
 function offline (selectedNode) {
+  connected = 0
   if (selectedNode == "remote") {
     document.querySelector('button#buttonRemote').querySelector("div").innerHTML = 'Node Offline! <img src="img/disconnected.png"/>'
   }
   if (selectedNode == "local") {
     document.querySelector('button#buttonLocal').querySelector("div").innerHTML = 'Node Offline! <img src="img/disconnected.png"/>'
   }
-  document.querySelector('button#buttonUpload').setAttribute('disabled', '')
 }
 
 function upload() {
