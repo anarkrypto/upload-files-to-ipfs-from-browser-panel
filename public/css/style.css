@@ -1,7 +1,7 @@
 html {
 	margin: 0px;
 	padding: 0px;
-	min-width: 377px
+	min-width: 377px;
 }
 
 body {
@@ -21,11 +21,11 @@ body {
 }
 
 h1 {
-	display: inline-block;
 	color: #92b0b3;
 	font-weight: 500;
 	font-size: 1.2em;
-	margin-left: 25px;
+	display: flex;
+	align-items: center;
 }
 
 .line {
@@ -113,42 +113,21 @@ h1 {
 }
 
 nav {
-	text-align: justify; /*requried for justify-vcenter fix*/
-	height: 6em; /*requried for justify-vcenter fix*/
 	background: rgba(35, 61, 77, 0.81);
 	text-transform: uppercase;
 	color: #92b0b3;
 	width: 100%;
-}
-
-nav::after {
-	content: '';
-	display: inline-block;
-	width: 100%;
-}
-
-nav > a,
-nav > a::before,
-nav > ul,
-nav > a img {
-	display: inline-block;
-	vertical-align: middle;
-	text-align: left;
-} /*requried for justify-vcenter fix*/
-
-nav > a {
-	height: 100%;
-}
-
-nav > a::before {
-	content: '';
-	height: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 nav ul {
-	list-style: none;
-	position: relative;
-	margin-right: 35px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 nav > ul > li {
@@ -176,12 +155,6 @@ nav .svg {
 	width: 1.2em;
 	display: block;
 	float: right;
-}
-
-nav > ul:after {
-	content: "";
-	clear: both;
-	display: block;
 }
 
 nav ul ul {
@@ -222,8 +195,23 @@ nav ul ul li a:hover {
 	}
 }
 
+@media screen and (max-width: 477px) {
+	nav h1 {
+		font-size: 14px;
+	}
+	nav ul {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 399px) {
+	nav > ul > li {
+		padding: 0 .5em;
+	}
+}
+
 @media screen and (max-width: 390px) {
 	#wrapper {
-		padding: 50px 0
+		padding: 50px 0;
 	}
 }
