@@ -95,7 +95,6 @@ input[type='file'] {
 }
 
 #list li {
-	width: 375px;
 	margin-top: 3px;
 	background-color: #f2f3f5;
 	border: 1px solid #dbdbdb;
