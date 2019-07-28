@@ -179,24 +179,18 @@ textarea {
 }
 
 .button-block {
-	display: block;
+	display: flex;
 	width: 100%;
+	flex-direction: column;
 }
 
-.button-block .connecting {
-	display: inline-block;
-	margin-left: 100px;
+.button-block > div:first-child {
+	display: flex;
+	justify-content: center;
 }
 
 .button-block img {
 	width: 20px;
-	margin-bottom: -4px;
-	margin-left: 5px;
-}
-
-.forgot {
-	margin-top: -20px;
-	text-align: right;
 }
 
 .min-line {
@@ -205,11 +199,6 @@ textarea {
 	height: 10px;
 	border-radius: 5px;
 	background-color: #0c89ba;
-}
-
-.min-loading {
-	margin-right: 70px;
-	float: right;
 }
 
 .min-loading-hidden {
