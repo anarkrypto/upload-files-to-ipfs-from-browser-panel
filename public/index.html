@@ -102,12 +102,14 @@
 										<li class="tab" id="http" onclick="changeProtocol('remote', 'http')"><a href="#remote">HTTP</a></li>
 									</ul>
 									<button type="button" class="button button-block" id="buttonRemote" onclick="updateNode('remote')">
+									<div class="buttonContent">
 										<div>Connect <img src="img/connect.png" /></div>
 										<div class="min-loading min-loading-hidden">
 											<div class="min-line"></div>
 											<div class="min-line"></div>
 											<div class="min-line"></div>
 										</div>
+									</div>
 									</button>
 								</form>
 							</div>`;
@@ -124,7 +126,7 @@
 										</div>
 										<div class="field-wrap" id="apiPort">
 											<label id="labelPort">
-												Port<span class="req">*</span>
+												API Port<span class="req">*</span>
 											</label>
 											<input type="text" name="last_name" id="local_apiPort" required autocomplete="off" />
 										</div>
@@ -142,12 +144,14 @@
 										<li class="tab" id="http" onclick="changeProtocol('local', 'http')"><a href="#local">HTTP</a></li>
 									</ul>
 									<button type="button" class="button button-block" id="buttonLocal" onclick="updateNode('local')">
+									<div class="buttonContent">
 										<div>Connect <img src="img/connect.png" /></div>
 										<div class="min-loading min-loading-hidden">
 											<div class="min-line"></div>
 											<div class="min-line"></div>
 											<div class="min-line"></div>
 										</div>
+									</div>
 									</button>
 								</form>
 							</div>`;

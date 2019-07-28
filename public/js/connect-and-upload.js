@@ -22,18 +22,18 @@ function updateNode (selectedNode) {
 function nodeConnect (selectedNode) {
   if (selectedNode == "remote") {
     document.querySelector('button#buttonRemote').setAttribute('disabled', '')
-    document.querySelector('button#buttonRemote').querySelector("div").innerText = "Connecting"
-    document.querySelector('button#buttonRemote').querySelector("div").classList.add("connecting")
-    document.querySelector('button#buttonLocal').querySelector("div").innerHTML = 'Connect <img src="img/connect.png"/>'
-    document.querySelector('button#buttonRemote').querySelector('.min-loading').classList.remove('min-loading-hidden') //loading event
+    document.querySelector('button#buttonRemote').querySelector(".buttonContent div").innerText = "Connecting"
+    document.querySelector('button#buttonRemote').querySelector(".buttonContent div").classList.add("connecting")
+    document.querySelector('button#buttonLocal').querySelector(".buttonContent div").innerHTML = 'Connect <img src="img/connect.png"/>'
+    document.querySelector('button#buttonRemote').querySelector(".buttonContent .min-loading").classList.remove('min-loading-hidden') //loading event
   }
 
   if (selectedNode == "local") {
     document.querySelector('button#buttonLocal').setAttribute('disabled', '')
-    document.querySelector('button#buttonLocal').querySelector("div").innerText = "Connecting"
-    document.querySelector('button#buttonLocal').querySelector("div").classList.add("connecting")
-    document.querySelector('button#buttonRemote').querySelector("div").innerHTML = 'Connect <img src="img/connect.png"/>'
-    document.querySelector('button#buttonLocal').querySelector('.min-loading').classList.remove('min-loading-hidden') //loading event
+    document.querySelector('button#buttonLocal').querySelector(".buttonContent div").innerText = "Connecting"
+    document.querySelector('button#buttonLocal').querySelector(".buttonContent div").classList.add("connecting")
+    document.querySelector('button#buttonRemote').querySelector(".buttonContent div").innerHTML = 'Connect <img src="img/connect.png"/>'
+    document.querySelector('button#buttonLocal').querySelector(".buttonContent .min-loading").classList.remove('min-loading-hidden') //loading event
   }
 
   var status = "wait"
@@ -48,14 +48,14 @@ function nodeConnect (selectedNode) {
     }
     document.querySelector('button#buttonRemote').removeAttribute("disabled");
     document.querySelector('button#buttonLocal').removeAttribute("disabled");
-    document.querySelector('button#buttonRemote').querySelector('.min-loading').classList.add('min-loading-hidden') //loading event
-    document.querySelector('button#buttonLocal').querySelector('.min-loading').classList.add('min-loading-hidden') //loading event
+    document.querySelector('button#buttonRemote').querySelector('.buttonContent .min-loading').classList.add('min-loading-hidden') //loading event
+    document.querySelector('button#buttonLocal').querySelector('.buttonContent .min-loading').classList.add('min-loading-hidden') //loading event
     return status
   }, function (reason) {
     document.querySelector('button#buttonRemote').removeAttribute("disabled");
     document.querySelector('button#buttonLocal').removeAttribute("disabled");
-    document.querySelector('button#buttonRemote').querySelector('.min-loading').classList.add('min-loading-hidden') //loading event
-    document.querySelector('button#buttonLocal').querySelector('.min-loading').classList.add('min-loading-hidden') //loading event
+    document.querySelector('button#buttonRemote').querySelector('.buttonContent .min-loading').classList.add('min-loading-hidden') //loading event
+    document.querySelector('button#buttonLocal').querySelector('.buttonContent .min-loading').classList.add('min-loading-hidden') //loading event
     offline(selectedNode)
     return "offline"
   })
@@ -64,24 +64,24 @@ function nodeConnect (selectedNode) {
 function online (selectedNode) {
   connected = 1
   if (selectedNode == "remote") {
-    document.querySelector('button#buttonRemote').querySelector("div").classList.remove("connecting")
-    document.querySelector('button#buttonRemote').querySelector("div").innerHTML = 'Node Online <img src="img/connected.png"/>'
+    document.querySelector('button#buttonRemote').querySelector(".buttonContent div").classList.remove("connecting")
+    document.querySelector('button#buttonRemote').querySelector(".buttonContent div").innerHTML = 'Node Online <img src="img/connected.png"/>'
+    document.querySelector('button#buttonRemote').querySelector('.buttonContent .min-loading').classList.add('min-loading-hidden')
   }
   if (selectedNode == "local") {
-    document.querySelector('button#buttonLocal').querySelector("div").classList.remove("connecting")
-    document.querySelector('button#buttonLocal').querySelector("div").innerHTML = 'Node Online <img src="img/connected.png"/>'
+    document.querySelector('button#buttonLocal').querySelector(".buttonContent div").classList.remove("connecting")
+    document.querySelector('button#buttonLocal').querySelector(".buttonContent div").innerHTML = 'Node Online <img src="img/connected.png"/>'
+    document.querySelector('button#buttonLocal').querySelector('.buttonContent .min-loading').classList.add('min-loading-hidden')
   }
-  document.querySelector('.min-loading').classList.add('min-loading-hidden')
-  document.querySelector('button#buttonUpload').removeAttribute("disabled");
 }
 
 function offline (selectedNode) {
   connected = 0
   if (selectedNode == "remote") {
-    document.querySelector('button#buttonRemote').querySelector("div").innerHTML = 'Node Offline! <img src="img/disconnected.png"/>'
+    document.querySelector('button#buttonRemote').querySelector(".buttonContent div").innerHTML = 'Node Offline! <img src="img/disconnected.png"/>'
   }
   if (selectedNode == "local") {
-    document.querySelector('button#buttonLocal').querySelector("div").innerHTML = 'Node Offline! <img src="img/disconnected.png"/>'
+    document.querySelector('button#buttonLocal').querySelector(".buttonContent div").innerHTML = 'Node Offline! <img src="img/disconnected.png"/>'
   }
 }
 
