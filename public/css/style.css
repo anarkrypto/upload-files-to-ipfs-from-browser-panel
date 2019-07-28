@@ -204,7 +204,7 @@ nav ul ul li a:hover {
 	}
 }
 
-@media screen and (max-width: 399px) {
+@media screen and (max-width: 410px) {
 	nav > ul > li {
 		padding: 0 .5em;
 	}
