@@ -93,6 +93,7 @@ h1 {
 	margin: 0px auto 30px;
 	padding: 50px 30px;
 	display: flex;
+	flex-direction: row-reverse;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	width: 100%;
