@@ -172,31 +172,26 @@ function handleFileSelect(evt) {
         alert("<p>At least one selected file is invalid - do not select any folders.</p><p>Please reselect and try again.</p>");
         return;
     }
-    for (const file of files) {
-        if (!file) {
-            alert(`Unable to access ${file.name}`);
+    for (var i = 0; i < files.length; i++) {
+        if (!files[i]) {
+            alert("Unable to access " + file.name);
             continue; // Immediately move to the next file object.
         }
-        if (file.size == 0) {
-            alert(`Skipping ${file.name.toUpperCase()} because it is empty.`);
+        if (files[i].size == 0) {
+            alert("Skipping " + files[i].name.toUpperCase() + " because it is empty.");
             continue;
         }
-        if (files_checksum.includes(fileChecksum(file))) {
+        if (files_checksum.includes(fileChecksum(files[i]))) {
             alert("This files is already listed");
             continue
         } else {
-            files_checksum[filesOk.length] = fileChecksum(file)
-            document.querySelector("#list").querySelector("ul").innerHTML += `<li id="${fileChecksum(file)}">
-              <strong class="fileName">${file.name}</strong>
-              <spam class="itemClose"><a class="removeItem" href="#"
-                  onclick="removeItem('${fileChecksum(file)}')">&times;</a>
-              </spam><br>
-              <spam id="fileProperties">
-                (${file.type || 'n/a'}) - ${file.size} bytes, last modified: ${new Date(file.lastModified).toLocaleDateString()}
-              </spam>
-            </li>`;
+            files_checksum[filesOk.length] = fileChecksum(files[i])
+            document.querySelector("#list").querySelector("ul").innerHTML += '<li id="' + fileChecksum(files[i]) + '"><strong class="fileName">' +
+            files[i].name + '</strong> <spam class="itemClose"><a class="removeItem" href="#" onclick="removeItem(\''+fileChecksum(files[i])+'\')">&times;</a></spam>' +
+            '</a></spam><br> <spam id="fileProperties"> (' + (files[i].type || 'n/a' ) +') - ' +
+            files[i].size + ' bytes, last modified: ' + new Date(files[i].lastModified).toLocaleDateString() +'</spam></li>';
 
-            filesOk[filesOk.length] = file; //push valid files for filesOk array
+            filesOk[filesOk.length] = files[i]; //push valid files for filesOk array
         }
 
     }
@@ -216,15 +211,8 @@ function updateList (checksum, ipfsHash) {
   } else {
     var gatewayPort = node[node.default].gateway
   }
-  document.getElementById(checksum).innerHTML = `<strong class="fileName">
-    <a href="${node[node.default].protocol}://${node[node.default].address}:${gatewayPort}/ipfs/${ipfsHash}"
-      class="uploaded" target="_blank">
-        ${filesOk[i].name}<img src="img/link.png" width="12px"/>
-    </a>
-  </strong><br>
-  <spam id="fileProperties">
-    (${filesOk[i].type || 'n/a' }) - ${filesOk[i].size} bytes, last modified: ${new Date(filesOk[i].lastModified).toLocaleDateString()}
-  </spam>`
+  document.getElementById(checksum).innerHTML = '<strong class="fileName"><a href="' + node[node.default].protocol + '://' + node[node.default].address + ':' + gatewayPort + '/ipfs/' + ipfsHash + '" class="uploaded" target="_blank">' + filesOk[i].name + ' <img src="img/link.png" width="12px"/></a></strong>' +
+  '</a></spam><br> <spam id="fileProperties"> (' + (filesOk[i].type || 'n/a' ) +') - ' + filesOk[i].size + ' bytes, last modified: ' + new Date(filesOk[i].lastModified).toLocaleDateString() +'</spam>'
 }
 
 function fileChecksum(file) {
