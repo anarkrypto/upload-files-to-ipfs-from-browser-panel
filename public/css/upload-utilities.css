@@ -72,6 +72,11 @@ input[type='file'] {
 	width: 18px;
 }
 
+#upload_conf {
+    display: flex;
+    flex-direction: column;
+}
+
 .box_button:hover,
 .box_button:focus {
 	background: #207ab6;
