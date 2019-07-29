@@ -179,33 +179,25 @@ textarea {
 }
 
 .button-block {
+	display: flex;
 	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.button-block .buttonContent {
-	max-width: 185px;
- 	margin: 0 auto;
+.button-block > div:first-child {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.button-block .buttonContent > div:first-child {
-		float: left;
-}
-
-.button-block .buttonContent img {
+.button-block img {
 	width: 20px;
-	margin-bottom: -3px;
-}
-
-.min-loading {
-	display: block;
-	float: right;
-	width: 55px;
-	margin-top: 4px;
 }
 
 .min-line {
-	display: block;
-	float: right;
+	display: inline-block;
 	width: 12px;
 	height: 10px;
 	border-radius: 5px;
@@ -230,7 +222,7 @@ textarea {
 
 @keyframes min-loadingB {
 	0% {
-		width: 6px;
+		width: 5px;
 	}
 	50% {
 		width: 12px;
