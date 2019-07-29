@@ -216,6 +216,10 @@ h1 {
 	width: 64px;
 }
 
+.min-loading.blue {
+    width: 68px;
+}
+
 .min-loading div {
 	position: absolute;
 	width: 11px;
@@ -227,6 +231,8 @@ h1 {
 
 .min-loading.blue div {
 	background-color: #3498db;
+	width: 15px;
+	height: 15px;
 }
 
 .min-loading div:nth-child(1) {
