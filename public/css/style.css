@@ -215,4 +215,6 @@ h1 {
 	font-size: 12px;
 	overflow: auto;
 	margin: 30px 0;
+	white-space: pre-wrap;
+	word-break: break-word;
 }
