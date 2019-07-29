@@ -94,7 +94,7 @@ function upload() {
       alert("<p>At least one selected file is invalid - do not select any folders.</p><p>Please reselect and try again.</p>");
       return
   }
-  document.querySelector('.loading').classList.remove('loading-hidden') //loading event
+  document.querySelector('.min-loading.blue').classList.remove('loading-hidden') //loading event
   document.querySelector('button#buttonUpload').setAttribute('disabled', '')
   document.querySelector('button#buttonRemote').setAttribute('disabled', '')
   document.querySelector('button#buttonLocal').setAttribute('disabled', '')
@@ -109,7 +109,7 @@ function upload() {
             updateList(fileChecksum(file), data[0].hash)
             uploadCount++
             if (uploadCount == filesOk.length) {
-              document.querySelector('.loading').classList.add('loading-hidden');  //stop loading event
+              document.querySelector('.min-loading.blue').classList.add('loading-hidden');  //stop loading event
               document.querySelector('button#buttonRemote').removeAttribute('disabled', '')
               document.querySelector('button#buttonLocal').removeAttribute('disabled', '')
               document.querySelector('button#buttonUpload').onclick=function(){resetFiles()}
