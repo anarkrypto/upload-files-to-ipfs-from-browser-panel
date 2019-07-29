@@ -56,15 +56,17 @@ nav {
 
 nav ul {
     list-style: none;
-    padding: 0;
+	padding: 0;
+	margin: 0;
     display: flex;
     flex-wrap: wrap;
 }
 
 nav > ul > li {
 	display: inline-block;
-	padding: 0 1.2em;
+	padding: 15px 1.2em;
 	white-space: nowrap;
+	position: relative;
 }
 
 nav a {
@@ -96,7 +98,6 @@ nav ul ul {
 
 nav ul li:hover > ul {
 	display: block;
-	margin-left: -40px;
 }
 
 nav ul ul li {
@@ -137,7 +138,7 @@ nav ul ul li a:hover {
 
 @media screen and (max-width: 410px) {
 	nav > ul > li {
-		padding: 0 .5em;
+		padding: 0 .5em 15px;
 	}
 }
 
@@ -212,5 +213,5 @@ h1 {
 	padding: 7px;
 	font-size: 12px;
 	overflow: auto;
-	margin: 30px 0 0;
+	margin: 30px 0;
 }
