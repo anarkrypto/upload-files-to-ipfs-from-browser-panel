@@ -48,6 +48,7 @@ input[type='file'] {
 	font-size: 1rem;
 	text-transform: uppercase;
 	letter-spacing: .1em;
+	border-radius: .2em;
 }
 
 .box_button {
