@@ -58,6 +58,10 @@ nav ul {
 	flex-wrap: wrap;
 }
 
+nav img {
+	width: 40px;
+}
+
 nav > ul > li {
 	display: inline-block;
 	padding: 25px 1.2em;
@@ -136,6 +140,10 @@ nav ul ul li a:hover {
 }
 
 @media screen and (max-width: 410px) {
+	nav h1 {
+		margin: 15px 0;
+	}
+
 	nav > ul > li {
 		padding: 0 .5em 15px;
 	}
@@ -144,6 +152,40 @@ nav ul ul li a:hover {
 @media screen and (max-width: 390px) {
 	#wrapper {
 		padding: 50px 0;
+	}
+}
+
+@media screen and (max-width: 370px) {
+	nav h1 {
+		font-size: 13px;
+	}
+
+	nav img {
+		width: 30px;
+	}
+}
+
+@media screen and (max-width: 355px) {
+	nav h1 {
+		font-size: 12px;
+	}
+
+	nav img {
+		width: 28px;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	nav h1 {
+		font-size: 11px;
+	}
+
+	nav img {
+		width: 25px;
+	}
+
+	nav > ul > li {
+		font-size: 11px;
 	}
 }
 
