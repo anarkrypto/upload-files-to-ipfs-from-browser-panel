@@ -11,7 +11,7 @@ body {
 }
 
 #content {
-	margin: 0px auto;
+	margin: 15px auto;
 	width: 100%;
 	max-width: 1000px;
 	display: flex;
@@ -40,10 +40,10 @@ body {
 }
 
 nav {
-	background: rgba(35, 61, 77, 0.81);
 	text-transform: uppercase;
 	color: #92b0b3;
 	width: 100%;
+	max-width: 1400px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -306,4 +306,16 @@ h1 {
 	margin: 30px 0;
 	white-space: pre-wrap;
 	word-break: break-word;
+}
+
+.b-nav {
+	margin: 0px auto;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background: rgba(35, 61, 77, 0.81);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
 }
