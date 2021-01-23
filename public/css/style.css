@@ -1,11 +1,7 @@
-html {
+html, body {
 	margin: 0px;
 	padding: 0px;
 	width: 100%;
-}
-
-body {
-	padding: 0px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	background-color: #e9ebee;
 }
