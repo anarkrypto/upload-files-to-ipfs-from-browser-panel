@@ -32,6 +32,8 @@ function changeProtocol (selectedNode, protocol) {
     node[selectedNode].protocol = "https"
     document.querySelector("#"+selectedNode).querySelector("#http").className = "tab"
     document.querySelector("#"+selectedNode).querySelector("#https").className += " active"
+    document.querySelector("input#remote_apiPort").value = 443;
+    document.querySelector("input#remote_apiPort").disabled = true;
   }
   if (protocol == "http") {
     node[selectedNode].protocol = "http"

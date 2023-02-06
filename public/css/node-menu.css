@@ -119,6 +119,10 @@ textarea:focus {
 	border-color: #207ab6;
 }
 
+input:disabled {
+	opacity: .4;
+}
+
 textarea {
 	border: 2px solid #a0b3b0;
 	resize: vertical;
