@@ -9,7 +9,7 @@ const node = {
 	// default remote Node
 	default: 'remote',
 	remote: {
-		address: 'ipfs.infura.io',
+		address: 'ipfs.sea.tube',
 		...config,
 		protocol: 'https'
 	},
