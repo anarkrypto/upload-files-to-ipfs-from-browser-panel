@@ -1,43 +1,30 @@
-$('.form').find('input, textarea').on('keyup blur focus', function (e) {
-  
-  var $this = $(this),
-      label = $this.prev('label');
+document.querySelectorAll(".tab a").forEach(function (element) {
+	element.addEventListener("click", function (e) {
+		e.preventDefault();
 
-	  if (e.type === 'keyup') {
-			if ($this.val() === '') {
-          label.removeClass('active highlight');
-        } else {
-          label.addClass('active highlight');
-        }
-    } else if (e.type === 'blur') {
-    	if( $this.val() === '' ) {
-    		label.removeClass('active highlight'); 
-			} else {
-		    label.removeClass('highlight');   
-			}   
-    } else if (e.type === 'focus') {
-      
-      if( $this.val() === '' ) {
-    		label.removeClass('highlight'); 
-			} 
-      else if( $this.val() !== '' ) {
-		    label.addClass('highlight');
+		var parent = element.parentElement;
+		parent.classList.add("active");
+		Array.from(parent.parentElement.children).forEach(function (sibling) {
+			if (sibling !== parent) {
+				sibling.classList.remove("active");
 			}
-    }
+		});
 
-});
+		var target = document.querySelector(element.getAttribute("href"));
+		document.querySelectorAll(".tab-content > div").forEach(function (div) {
+			if (div !== target) {
+				div.style.display = "none";
+			}
+		});
 
-$('.tab a').on('click', function (e) {
-  
-  e.preventDefault();
-  
-  $(this).parent().addClass('active');
-  $(this).parent().siblings().removeClass('active');
-  
-  target = $(this).attr('href');
-
-  $('.tab-content > div').not(target).hide();
-  
-  $(target).fadeIn(600);
-  
+		target.style.display = "block";
+		target.style.opacity = 0;
+		var fadeEffect = setInterval(function () {
+			if (target.style.opacity < 1) {
+				target.style.opacity = parseFloat(target.style.opacity) + 0.1;
+			} else {
+				clearInterval(fadeEffect);
+			}
+		}, 60);
+	});
 });
