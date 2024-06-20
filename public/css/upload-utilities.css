@@ -51,14 +51,16 @@ input[type='file'] {
 	border-radius: .2em;
 }
 
-.box_button {
+.button-upload {
+	width: 9rem;
 	border: 0;
 	outline: none;
 	padding: 10px;
 	font-size: 1rem;
-	width: 9rem;
 	text-transform: uppercase;
 	letter-spacing: .1em;
+	display: flex;
+	justify-content: center;
 	background-color: #3498db;
 	color: #ffffff;
 	transition: all 0.5s ease;
@@ -66,20 +68,22 @@ input[type='file'] {
 	-webkit-appearance: none;
 	box-shadow: 0 2px 5px 2px rgba(19, 35, 47, 0.3);
 	font-weight: bold;
+	border-radius: 12px;
+	gap: 4px;
 }
 
-.box_button img {
-	margin-bottom: -2px;
-	margin-left: 2px;
+.button-upload img {
 	width: 18px;
+	height: 18px;
 }
 
-#upload_conf {
+.upload-wrapper {
     display: flex;
+	padding: 20px 0;
 }
 
-.box_button:hover,
-.box_button:focus {
+.button-upload:hover,
+.button-upload:focus {
 	background: #207ab6;
 	cursor: pointer;
 }

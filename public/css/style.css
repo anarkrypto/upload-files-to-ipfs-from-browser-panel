@@ -1,30 +1,32 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
 html, body {
 	margin: 0px;
-	padding: 0px;
 	width: 100%;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 	background-color: #e9ebee;
 }
 
-#content {
-	margin: 15px auto;
+main {
+	margin: 25px auto;
 	width: 100%;
 	max-width: 1000px;
 	display: flex;
 	flex-direction: column;
-	background-color: white;
 	align-items: center;
-	padding-bottom: 50px;
 }
 
-#wrapper {
-	background-color: white;
-	padding: 50px 0px 50px 0px;
+.wrapper {
 	display: flex;
 	flex-direction: row-reverse;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	width: 100%;
+	padding: 0 8px;
 }
 
 #left {
@@ -39,11 +41,13 @@ nav {
 	text-transform: uppercase;
 	color: #92b0b3;
 	width: 100%;
-	max-width: 1400px;
 	display: flex;
-	justify-content: space-around;
+	flex-direction: row;
+	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap;
+	padding-left: 12px;
+	padding-right: 12px;
+	background: rgba(35, 61, 77, 1);
 }
 
 nav ul {
@@ -58,14 +62,17 @@ nav img {
 	width: 40px;
 }
 
-nav > ul > li {
-	display: inline-block;
-	padding: 25px 1.2em;
-	white-space: nowrap;
+nav li {
 	position: relative;
+	padding: 25px 1.2em;
+	line-height: 1.2em;
+	white-space: nowrap;
 }
 
 nav a {
+	display: flex;
+	justify-content: center;
+	gap: 5px;
 	color: #92b0b3;
 	text-decoration: none;
 }
@@ -74,25 +81,24 @@ nav a:hover {
 	color: white;
 }
 
-nav a:hover > * {
-	fill: white;
-}
-
-nav .svg {
+nav svg {
 	fill: #92b0b3;
 	height: 1.2em;
 	width: 1.2em;
-	display: block;
-	float: right;
+}
+
+nav a:hover svg {
+	fill: white;
 }
 
 nav ul ul {
 	display: none;
 	position: absolute;
-	top: 100%; /*sets the top edge of the element above/below top edge of nearest ancestor*/
+	top: 100%;
+	/*sets the top edge of the element above/below top edge of nearest ancestor*/
 }
 
-nav ul li:hover > ul {
+nav ul li:hover>ul {
 	display: block;
 }
 
@@ -111,16 +117,16 @@ nav ul ul li a:hover {
 	color: white;
 }
 
-*,
-*:before,
-*:after {
-	box-sizing: border-box;
-}
-
 @media screen and (max-width: 860px) {
-	nav h1 {
-		margin-top: 25px;
+
+	nav {
+		flex-direction: column;
 	}
+
+	nav h1 {
+		margin-top: 16px;
+	}
+
 	pre#response {
 		margin: 30px 0;
 	}
@@ -130,6 +136,7 @@ nav ul ul li a:hover {
 	nav h1 {
 		font-size: 14px;
 	}
+
 	nav ul {
 		font-size: 12px;
 	}
@@ -140,14 +147,8 @@ nav ul ul li a:hover {
 		margin: 15px 0;
 	}
 
-	nav > ul > li {
+	nav>ul>li {
 		padding: 0 .5em 15px;
-	}
-}
-
-@media screen and (max-width: 390px) {
-	#wrapper {
-		padding: 50px 0;
 	}
 }
 
@@ -180,7 +181,7 @@ nav ul ul li a:hover {
 		width: 25px;
 	}
 
-	nav > ul > li {
+	nav>ul>li {
 		font-size: 11px;
 	}
 }
@@ -194,13 +195,13 @@ h1 {
 	margin: 0;
 }
 
-.buttonContent > div:first-child {
+.buttonContent>div:first-child {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.buttonContent > div:first-child img {
+.buttonContent>div:first-child img {
 	margin-left: 5px;
 }
 
@@ -213,7 +214,7 @@ h1 {
 }
 
 .min-loading.blue {
-    width: 68px;
+	width: 68px;
 }
 
 .min-loading div {
@@ -235,38 +236,47 @@ h1 {
 	left: 6px;
 	animation: min-loading1 0.6s infinite;
 }
+
 .min-loading div:nth-child(2) {
 	left: 6px;
 	animation: min-loading2 0.6s infinite;
 }
+
 .min-loading div:nth-child(3) {
 	left: 26px;
 	animation: min-loading2 0.6s infinite;
 }
+
 .min-loading div:nth-child(4) {
 	left: 45px;
 	animation: min-loading3 0.6s infinite;
 }
+
 @keyframes min-loading1 {
 	0% {
 		transform: scale(0);
 	}
+
 	100% {
 		transform: scale(1);
 	}
 }
+
 @keyframes min-loading3 {
 	0% {
 		transform: scale(1);
 	}
+
 	100% {
 		transform: scale(0);
 	}
 }
+
 @keyframes min-loading2 {
 	0% {
 		transform: translate(0, 0);
 	}
+
 	100% {
 		transform: translate(19px, 0);
 	}
@@ -280,6 +290,7 @@ h1 {
 	0% {
 		transform: rotate(0deg);
 	}
+
 	100% {
 		transform: rotate(360deg);
 	}
@@ -302,16 +313,4 @@ h1 {
 	margin: 30px 0;
 	white-space: pre-wrap;
 	word-break: break-word;
-}
-
-.b-nav {
-	margin: 0px auto;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	background: rgba(35, 61, 77, 0.81);
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-wrap: wrap;
 }

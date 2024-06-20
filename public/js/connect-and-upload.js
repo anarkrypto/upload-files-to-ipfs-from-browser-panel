@@ -91,7 +91,7 @@ function upload() {
     return
   }
   if (filesOk.length < 1) {
-      alert("<p>At least one selected file is invalid - do not select any folders.</p><p>Please reselect and try again.</p>");
+      alert("At least one selected file is invalid - do not select any folders.");
       return
   }
   document.querySelector('.min-loading.blue').classList.remove('loading-hidden') //loading event
@@ -133,7 +133,7 @@ function ipfsRequest (file_name, data) {
   return new Promise((resolve, reject) => {
       ipfs.add(file_send, function (err, json) {
         if (err) {
-          alert(err);
+          //alert(err);
           reject (0)
         } else {
           resolve (json)

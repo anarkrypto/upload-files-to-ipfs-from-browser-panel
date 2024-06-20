@@ -1,30 +1,33 @@
-document.querySelectorAll(".tab a").forEach(function (element) {
-	element.addEventListener("click", function (e) {
-		e.preventDefault();
+const formRemote = document.getElementById("remote")
+const formLocal = document.getElementById("local")
+const tabGroup = document.getElementById("tab-group")
+const tabRemote = document.getElementById("tab-remote")
+const tabLocal = document.getElementById("tab-local")
 
-		var parent = element.parentElement;
-		parent.classList.add("active");
-		Array.from(parent.parentElement.children).forEach(function (sibling) {
-			if (sibling !== parent) {
-				sibling.classList.remove("active");
-			}
-		});
+function changeToRemote() {
+  formRemote.style.display = "block"
+  formLocal.style.display = "none"
+  tabRemote.className = "tab active"
+  tabLocal.className = "tab"
+}
 
-		var target = document.querySelector(element.getAttribute("href"));
-		document.querySelectorAll(".tab-content > div").forEach(function (div) {
-			if (div !== target) {
-				div.style.display = "none";
-			}
-		});
+function changeToLocal() {
+  formRemote.style.display = "none"
+  formLocal.style.display = "block"
+  tabRemote.className = "tab"
+  tabLocal.className = "tab active"
+}
 
-		target.style.display = "block";
-		target.style.opacity = 0;
-		var fadeEffect = setInterval(function () {
-			if (target.style.opacity < 1) {
-				target.style.opacity = parseFloat(target.style.opacity) + 0.1;
-			} else {
-				clearInterval(fadeEffect);
-			}
-		}, 60);
-	});
-});
+if (node.default === "remote") {
+  tabGroup.style.flexDirection = "row-reverse"
+  changeToRemote()
+}
+
+if (node.default === "local") {
+  tabGroup.style.flexDirection = "row"
+  changeToLocal()
+}
+
+tabRemote.addEventListener("click", changeToRemote)
+tabLocal.addEventListener("click", changeToLocal)
+
